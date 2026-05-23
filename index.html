@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For You ❤️</title>
+<title>For My Love ❤️</title>
 
 <style>
 
@@ -11,33 +11,38 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:'Arial',sans-serif;
 }
 
 body{
-    height:100vh;
     background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
+    overflow-x:hidden;
+    color:white;
+    text-align:center;
     transition:1s;
 }
 
 .container{
-    text-align:center;
-    background:rgba(255,255,255,0.2);
-    padding:50px;
-    border-radius:25px;
-    width:85%;
-    max-width:750px;
-    color:white;
-    box-shadow:0 8px 32px rgba(0,0,0,0.2);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+.glass{
+    background:rgba(255,255,255,0.15);
+    padding:40px;
+    border-radius:30px;
     backdrop-filter:blur(10px);
+    box-shadow:0 8px 32px rgba(0,0,0,0.2);
+    max-width:900px;
+    width:90%;
 }
 
 h1{
-    font-size:3rem;
+    font-size:4rem;
     margin-bottom:20px;
 }
 
@@ -46,15 +51,11 @@ p{
     line-height:1.8;
 }
 
-.buttons{
-    margin-top:30px;
-}
-
 button{
     padding:15px 30px;
-    margin:10px;
     border:none;
     border-radius:50px;
+    margin:15px;
     font-size:1.2rem;
     cursor:pointer;
     transition:0.3s;
@@ -71,39 +72,19 @@ button{
     position:relative;
 }
 
-#message{
+button:hover{
+    transform:scale(1.08);
+}
+
+#mainContent{
     display:none;
-    animation:fadeIn 1.5s ease;
-}
-
-.special{
-    margin-top:25px;
-    font-size:2rem;
-    animation:pulse 1s infinite;
-}
-
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-@keyframes pulse{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.1);}
-    100%{transform:scale(1);}
 }
 
 .heart{
-    position:absolute;
-    color:white;
+    position:fixed;
     font-size:25px;
     animation:float 6s linear infinite;
+    z-index:999;
 }
 
 @keyframes float{
@@ -117,54 +98,138 @@ button{
     }
 }
 
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:40px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+    transition:0.5s;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+#typewriter{
+    min-height:220px;
+}
+
+.counter{
+    margin-top:30px;
+    font-size:1.5rem;
+}
+
+.special{
+    margin-top:40px;
+    font-size:2rem;
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+    100%{transform:scale(1);}
+}
+
+#loveMeter{
+    font-size:2rem;
+    margin-top:20px;
+}
+
+#surprise{
+    display:none;
+    margin-top:40px;
+}
+
+#funnyPhoto{
+    display:none;
+    margin-top:30px;
+}
+
+#funnyPhoto img{
+    width:300px;
+    border-radius:20px;
+}
+
 </style>
 </head>
 
 <body>
 
+<audio id="music" loop>
+<source src="jo-ishq-hua.mp3" type="audio/mp3">
+</audio>
+
 <div class="container">
+
+<div class="glass">
 
 <div id="question">
 
 <h1>Hey Love ❤️</h1>
 
-<p>Do you want to open my special message?</p>
+<p>Do you want to open my heart?</p>
 
-<div class="buttons">
-    <button id="yesBtn">YES ❤️</button>
-    <button id="noBtn">NO 😒</button>
+<button id="yesBtn">YES ❤️</button>
+<button id="noBtn">NO 😒</button>
+
+<div id="loveMeter"></div>
+
 </div>
 
+<div id="mainContent">
+
+<h1>I KNEW YOU’D SAY YES ❤️</h1>
+
+<div id="typewriter"></div>
+
+<div class="counter" id="counter"></div>
+
+<div class="gallery">
+
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+<img src="photo5.jpg">
+<img src="photo6.jpg">
+
 </div>
 
-<div id="message">
+<button id="surpriseBtn">
+Click for one more surprise 🎁
+</button>
 
-<h1>I KNEW YOU LOVED ME ❤️</h1>
+<div id="surprise">
 
-<p>
-I just wanted to remind you how important you are to me.
-Thank you for always being there for me,
-for supporting me, listening to me,
-and making my life feel warmer and safer.
-</p>
-
-<br>
+<h1>You Are My Safest Place ❤️</h1>
 
 <p>
-I’m genuinely so grateful that you exist.
-No matter what happens,
-having you beside me means everything.
-</p>
-
-<br>
-
-<p>
-You are one of the best things
-that ever happened to me.
+Thank you for existing.
+Thank you for loving me.
+Thank you for always being there for me.
 </p>
 
 <div class="special">
 Forever yours ❤️
+</div>
+
+<button id="funnyBtn">
+click if you think you're cute 😒
+</button>
+
+<div id="funnyPhoto">
+<img src="photo7.jpg">
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -177,89 +242,193 @@ const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
 
 const noMessages = [
-    "Are you sure? 🥺",
-    "Don't you love me? 😭",
-    "Why don't you want to read it? 💔",
-    "My feelings are getting hurt 😔",
-    "Just open ittt ❤️",
-    "Pleaseeeee 🥹"
-];
-
-const yesMessages = [
-    "hehe I knew it ❤️",
-    "good choice baby 😚",
-    "come hereee ❤️",
-    "I knew you loved me 🥺"
+"Are you sure? 🥺",
+"Don't you love me? 😭",
+"My feelings are hurt 💔",
+"Please open ittt ❤️",
+"Why are you running 😭"
 ];
 
 let noCount = 0;
-let yesCount = 0;
 
 noBtn.addEventListener("mouseover", () => {
 
-    noBtn.innerText = noMessages[noCount % noMessages.length];
+noBtn.innerText = noMessages[noCount % noMessages.length];
 
-    noCount++;
+const x = Math.random()*300-150;
+const y = Math.random()*300-150;
 
-    const x = Math.random() * 300 - 150;
-    const y = Math.random() * 300 - 150;
+noBtn.style.transform =
+`translate(${x}px,${y}px) scale(${1+noCount*0.1})`;
 
-    noBtn.style.transform =
-        `translate(${x}px, ${y}px) scale(${1 + noCount*0.1})`;
+noCount++;
 
 });
 
 yesBtn.addEventListener("mouseover", () => {
 
-    yesBtn.innerText = yesMessages[yesCount % yesMessages.length];
+yesBtn.innerText = "hehe I knew it ❤️";
 
-    yesBtn.style.transform =
-        `scale(${1 + yesCount * 0.08})`;
-
-    yesBtn.style.boxShadow =
-        "0 0 25px rgba(255,255,255,0.9)";
-
-    yesCount++;
+yesBtn.style.boxShadow =
+"0 0 30px rgba(255,255,255,0.9)";
 
 });
 
 yesBtn.addEventListener("click", () => {
 
-    document.body.style.background =
-        "linear-gradient(135deg,#ff758c,#ff7eb3)";
+document.getElementById("music").play();
 
-    document.getElementById("question").style.display = "none";
+document.getElementById("loveMeter").innerHTML =
+"Analyzing love... ❤️";
 
-    document.getElementById("message").style.display = "block";
+let percent = 0;
 
-    createHearts();
+const interval = setInterval(() => {
+
+percent += 10;
+
+document.getElementById("loveMeter").innerHTML =
+percent + "% IN LOVE ❤️";
+
+if(percent >= 100){
+
+clearInterval(interval);
+
+setTimeout(() => {
+
+document.getElementById("question").style.display =
+"none";
+
+document.getElementById("mainContent").style.display =
+"block";
+
+typeWriter();
+
+createHearts();
+
+},1000);
+
+}
+
+},200);
 
 });
 
-function createHearts(){
+const text = `
+I just wanted to remind you how important you are to me.
 
-    setInterval(() => {
+Thank you for always being there for me,
+for loving me,
+supporting me,
+and making life feel safer and happier.
 
-        const heart = document.createElement("div");
+I’m genuinely so grateful that you exist.
 
-        heart.classList.add("heart");
+No matter what happens,
+having you beside me means everything ❤️
+`;
 
-        heart.innerHTML = "❤️";
+let i = 0;
 
-        heart.style.left = Math.random() * 100 + "vw";
+function typeWriter(){
 
-        heart.style.fontSize =
-            Math.random() * 20 + 20 + "px";
+if(i < text.length){
 
-        document.body.appendChild(heart);
+document.getElementById("typewriter").innerHTML +=
+text.charAt(i);
 
-        setTimeout(() => {
-            heart.remove();
-        }, 6000);
+i++;
 
-    }, 200);
+setTimeout(typeWriter,40);
 
 }
+
+}
+
+function createHearts(){
+
+setInterval(() => {
+
+const heart = document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML = "❤️";
+
+heart.style.left = Math.random()*100 + "vw";
+
+heart.style.fontSize =
+Math.random()*20 + 20 + "px";
+
+document.body.appendChild(heart);
+
+setTimeout(() => {
+heart.remove();
+},6000);
+
+},300);
+
+}
+
+const startDate = new Date("2026-03-19");
+
+function updateCounter(){
+
+const now = new Date();
+
+const diff = now - startDate;
+
+const days = Math.floor(diff/(1000*60*60*24));
+
+const hours = Math.floor(
+(diff/(1000*60*60))%24
+);
+
+const mins = Math.floor(
+(diff/(1000*60))%60
+);
+
+document.getElementById("counter").innerHTML =
+`❤️ Together since 19 March 2026<br>
+${days} days ${hours} hours ${mins} minutes`;
+
+}
+
+setInterval(updateCounter,1000);
+
+document.getElementById("surpriseBtn")
+.addEventListener("click",() => {
+
+document.getElementById("surprise")
+.style.display = "block";
+
+for(let i=0;i<50;i++){
+
+const heart = document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML = "💖";
+
+heart.style.left = Math.random()*100 + "vw";
+
+document.body.appendChild(heart);
+
+setTimeout(() => {
+heart.remove();
+},6000);
+
+}
+
+});
+
+document.getElementById("funnyBtn")
+.addEventListener("click",() => {
+
+document.getElementById("funnyPhoto")
+.style.display = "block";
+
+});
 
 </script>
 
