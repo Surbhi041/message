@@ -23,7 +23,6 @@ body{
     overflow-x:hidden;
     color:white;
     text-align:center;
-    transition:1s;
 }
 
 .container{
@@ -45,7 +44,7 @@ body{
 }
 
 h1{
-    font-size:3.2rem;
+    font-size:3rem;
     margin-bottom:25px;
     font-weight:700;
 }
@@ -93,69 +92,191 @@ button:hover{
 }
 
 @keyframes float{
+
     0%{
         transform:translateY(100vh);
         opacity:1;
     }
+
     100%{
         transform:translateY(-120vh);
         opacity:0;
     }
+
 }
 
 .gallery{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+
     margin-top:50px;
+
+    align-items:center;
+
 }
 
 .gallery img{
+
     width:100%;
+
     height:350px;
+
     object-fit:cover;
+
     border-radius:25px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.25);
-    transition:0.5s;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.25);
+
+    transition:all 0.5s ease;
+
+    cursor:pointer;
+
+    position:relative;
+
+}
+
+.gallery:hover img{
+
+    opacity:0.45;
+
+    transform:scale(0.95);
+
 }
 
 .gallery img:hover{
-    transform:scale(1.05);
+
+    opacity:1;
+
+    transform:
+    scale(1.18)
+    translateY(-20px);
+
+    z-index:100;
+
+    box-shadow:
+    0 30px 60px rgba(0,0,0,0.45);
+
+}
+
+.popup-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,0.45);
+
+    backdrop-filter:blur(8px);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.popup-overlay img{
+
+    width:420px;
+
+    max-width:90%;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 20px 70px rgba(0,0,0,0.5);
+
+    animation:popup 0.4s ease;
+
+}
+
+@keyframes popup{
+
+    from{
+        transform:scale(0.7);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
 }
 
 #typewriter{
+
     min-height:250px;
+
     font-size:2rem;
+
     line-height:1.8;
+
     margin-top:30px;
+
     padding:20px;
+
     font-weight:500;
+
     text-shadow:0 0 10px rgba(255,255,255,0.3);
+
 }
 
 .counter{
+
     margin-top:20px;
+
     font-size:2rem;
+
     font-weight:600;
+
 }
 
 .special{
+
     margin-top:40px;
+
     font-size:2.5rem;
+
     animation:pulse 1s infinite;
+
     font-weight:700;
+
 }
 
 @keyframes pulse{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.08);}
-    100%{transform:scale(1);}
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
 }
 
 #loveMeter{
+
     font-size:2rem;
+
     margin-top:30px;
+
     font-weight:600;
+
 }
 
 #surprise{
@@ -169,21 +290,29 @@ button:hover{
 }
 
 #funnyPhoto img{
+
     width:320px;
+
     border-radius:25px;
-    box-shadow:0 8px 30px rgba(0,0,0,0.3);
+
+    box-shadow:
+    0 8px 30px rgba(0,0,0,0.3);
+
 }
 
 #surpriseBtn,
 #funnyBtn{
+
     background:white;
+
     color:#ff4f81;
+
 }
 
 @media(max-width:768px){
 
 h1{
-    font-size:2.3rem;
+    font-size:2.2rem;
 }
 
 #typewriter{
@@ -191,7 +320,7 @@ h1{
 }
 
 .counter{
-    font-size:1.4rem;
+    font-size:1.3rem;
 }
 
 .special{
@@ -199,7 +328,7 @@ h1{
 }
 
 .gallery img{
-    height:280px;
+    height:240px;
 }
 
 }
@@ -225,6 +354,7 @@ h1{
 <p>Do you want to open my heart?</p>
 
 <button id="yesBtn">YES ❤️</button>
+
 <button id="noBtn">NO 😒</button>
 
 <div id="loveMeter"></div>
@@ -258,63 +388,100 @@ Click for one more surprise 🎁
 <h1>You Are My Safest Place ❤️</h1>
 
 <p>
-Thank you for existing.<br>
-Thank you for loving me.<br>
-Thank you for always being there for me.<br><br>
+
+Thank you for existing ❤️
+<br><br>
+
+Thank you for loving me,
+supporting me,
+and always being there for me.
+
+<br><br>
 
 You make life feel softer,
 warmer,
-and happier.<br><br>
+and happier.
+
+<br><br>
 
 I genuinely feel lucky
 that I get to love you ❤️
+
 </p>
 
 <div class="special">
+
 Forever yours ❤️
+
 </div>
 
 <button id="funnyBtn">
+
 click if you think you're cute 😒
+
 </button>
 
 <div id="funnyPhoto">
+
 <img src="photo6.jpg">
-</div>
 
 </div>
 
 </div>
 
 </div>
+
+</div>
+
+</div>
+
+<div class="popup-overlay" id="popup">
+
+<img id="popupImg">
 
 </div>
 
 <script>
 
-const noBtn = document.getElementById("noBtn");
-const yesBtn = document.getElementById("yesBtn");
+const noBtn =
+document.getElementById("noBtn");
+
+const yesBtn =
+document.getElementById("yesBtn");
 
 const noMessages = [
+
 "Are you sure? 🥺",
+
 "Don't you love me? 😭",
+
 "My feelings are hurt 💔",
+
 "Please open ittt ❤️",
+
 "Why are you running 😭",
+
 "Just say yes baby 🥹"
+
 ];
 
 let noCount = 0;
 
 noBtn.addEventListener("mouseover", () => {
 
-noBtn.innerText = noMessages[noCount % noMessages.length];
+noBtn.innerText =
+noMessages[noCount % noMessages.length];
 
-const x = Math.random()*300-150;
-const y = Math.random()*300-150;
+const x =
+Math.random()*300-150;
+
+const y =
+Math.random()*300-150;
 
 noBtn.style.transform =
-`translate(${x}px,${y}px) scale(${1+noCount*0.1})`;
+
+`translate(${x}px,${y}px)
+scale(${1+noCount*0.1})`;
 
 noCount++;
 
@@ -322,7 +489,8 @@ noCount++;
 
 yesBtn.addEventListener("mouseover", () => {
 
-yesBtn.innerText = "hehe I knew it ❤️";
+yesBtn.innerText =
+"hehe I knew it ❤️";
 
 yesBtn.style.boxShadow =
 "0 0 30px rgba(255,255,255,0.9)";
@@ -343,6 +511,7 @@ const interval = setInterval(() => {
 percent += 10;
 
 document.getElementById("loveMeter").innerHTML =
+
 percent + "% IN LOVE ❤️";
 
 if(percent >= 100){
@@ -354,11 +523,11 @@ document.getElementById("loveMeter").innerHTML =
 
 setTimeout(() => {
 
-document.getElementById("question").style.display =
-"none";
+document.getElementById("question")
+.style.display = "none";
 
-document.getElementById("mainContent").style.display =
-"block";
+document.getElementById("mainContent")
+.style.display = "block";
 
 typeWriter();
 
@@ -373,17 +542,22 @@ createHearts();
 });
 
 const text = `
-I just wanted to remind you how important you are to me.
+
+I just wanted to remind you
+how important you are to me ❤️
 
 Thank you for always being there for me,
 for loving me,
 supporting me,
 and making life feel safer and happier.
 
-I’m genuinely so grateful that you exist.
+I’m genuinely so grateful
+that you exist.
 
 No matter what happens,
-having you beside me means everything ❤️
+having you beside me
+means everything ❤️
+
 `;
 
 let i = 0;
@@ -392,8 +566,8 @@ function typeWriter(){
 
 if(i < text.length){
 
-document.getElementById("typewriter").innerHTML +=
-text.charAt(i);
+document.getElementById("typewriter")
+.innerHTML += text.charAt(i);
 
 i++;
 
@@ -407,13 +581,15 @@ function createHearts(){
 
 setInterval(() => {
 
-const heart = document.createElement("div");
+const heart =
+document.createElement("div");
 
 heart.classList.add("heart");
 
 heart.innerHTML = "❤️";
 
-heart.style.left = Math.random()*100 + "vw";
+heart.style.left =
+Math.random()*100 + "vw";
 
 heart.style.fontSize =
 Math.random()*20 + 20 + "px";
@@ -421,14 +597,17 @@ Math.random()*20 + 20 + "px";
 document.body.appendChild(heart);
 
 setTimeout(() => {
+
 heart.remove();
+
 },6000);
 
 },300);
 
 }
 
-const startDate = new Date("2026-03-19");
+const startDate =
+new Date("2026-03-19");
 
 function updateCounter(){
 
@@ -436,18 +615,19 @@ const now = new Date();
 
 const diff = now - startDate;
 
-const days = Math.floor(diff/(1000*60*60*24));
+const days =
+Math.floor(diff/(1000*60*60*24));
 
-const hours = Math.floor(
-(diff/(1000*60*60))%24
-);
+const hours =
+Math.floor((diff/(1000*60*60))%24);
 
-const mins = Math.floor(
-(diff/(1000*60))%60
-);
+const mins =
+Math.floor((diff/(1000*60))%60);
 
 document.getElementById("counter").innerHTML =
-`❤️ Together since 19 March 2026<br>
+
+`❤️ Together since 19 March 2026
+<br>
 ${days} days ${hours} hours ${mins} minutes`;
 
 }
@@ -462,18 +642,22 @@ document.getElementById("surprise")
 
 for(let i=0;i<50;i++){
 
-const heart = document.createElement("div");
+const heart =
+document.createElement("div");
 
 heart.classList.add("heart");
 
 heart.innerHTML = "💖";
 
-heart.style.left = Math.random()*100 + "vw";
+heart.style.left =
+Math.random()*100 + "vw";
 
 document.body.appendChild(heart);
 
 setTimeout(() => {
+
 heart.remove();
+
 },6000);
 
 }
@@ -485,6 +669,31 @@ document.getElementById("funnyBtn")
 
 document.getElementById("funnyPhoto")
 .style.display = "block";
+
+});
+
+const popup =
+document.getElementById("popup");
+
+const popupImg =
+document.getElementById("popupImg");
+
+document.querySelectorAll(".gallery img")
+.forEach(img => {
+
+img.addEventListener("click", () => {
+
+popup.style.display = "flex";
+
+popupImg.src = img.src;
+
+});
+
+});
+
+popup.addEventListener("click", () => {
+
+popup.style.display = "none";
 
 });
 
