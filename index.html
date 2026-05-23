@@ -21,6 +21,7 @@ body{
     justify-content:center;
     align-items:center;
     overflow:hidden;
+    transition:1s;
 }
 
 .container{
@@ -175,7 +176,7 @@ Forever yours ❤️
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
 
-const messages = [
+const noMessages = [
     "Are you sure? 🥺",
     "Don't you love me? 😭",
     "Why don't you want to read it? 💔",
@@ -184,25 +185,51 @@ const messages = [
     "Pleaseeeee 🥹"
 ];
 
-let count = 0;
+const yesMessages = [
+    "hehe I knew it ❤️",
+    "good choice baby 😚",
+    "come hereee ❤️",
+    "I knew you loved me 🥺"
+];
+
+let noCount = 0;
+let yesCount = 0;
 
 noBtn.addEventListener("mouseover", () => {
 
-    noBtn.innerText = messages[count % messages.length];
+    noBtn.innerText = noMessages[noCount % noMessages.length];
 
-    count++;
+    noCount++;
 
     const x = Math.random() * 300 - 150;
     const y = Math.random() * 300 - 150;
 
     noBtn.style.transform =
-        `translate(${x}px, ${y}px) scale(${1 + count*0.1})`;
+        `translate(${x}px, ${y}px) scale(${1 + noCount*0.1})`;
+
+});
+
+yesBtn.addEventListener("mouseover", () => {
+
+    yesBtn.innerText = yesMessages[yesCount % yesMessages.length];
+
+    yesBtn.style.transform =
+        `scale(${1 + yesCount * 0.08})`;
+
+    yesBtn.style.boxShadow =
+        "0 0 25px rgba(255,255,255,0.9)";
+
+    yesCount++;
 
 });
 
 yesBtn.addEventListener("click", () => {
 
+    document.body.style.background =
+        "linear-gradient(135deg,#ff758c,#ff7eb3)";
+
     document.getElementById("question").style.display = "none";
+
     document.getElementById("message").style.display = "block";
 
     createHearts();
