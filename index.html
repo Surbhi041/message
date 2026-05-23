@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For My Love ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -11,7 +15,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Arial',sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
@@ -25,25 +29,25 @@ body{
 .container{
     min-height:100vh;
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
-    padding:30px;
+    padding:40px 20px;
 }
 
 .glass{
     background:rgba(255,255,255,0.15);
-    padding:40px;
-    border-radius:30px;
-    backdrop-filter:blur(10px);
+    padding:50px 30px;
+    border-radius:35px;
+    backdrop-filter:blur(15px);
     box-shadow:0 8px 32px rgba(0,0,0,0.2);
-    max-width:900px;
-    width:90%;
+    width:95%;
+    max-width:1200px;
 }
 
 h1{
-    font-size:4rem;
-    margin-bottom:20px;
+    font-size:3.2rem;
+    margin-bottom:25px;
+    font-weight:700;
 }
 
 p{
@@ -59,6 +63,7 @@ button{
     font-size:1.2rem;
     cursor:pointer;
     transition:0.3s;
+    font-weight:600;
 }
 
 #yesBtn{
@@ -100,15 +105,17 @@ button:hover{
 
 .gallery{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-    margin-top:40px;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+    margin-top:50px;
 }
 
 .gallery img{
     width:100%;
-    border-radius:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+    height:350px;
+    object-fit:cover;
+    border-radius:25px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.25);
     transition:0.5s;
 }
 
@@ -117,18 +124,26 @@ button:hover{
 }
 
 #typewriter{
-    min-height:220px;
+    min-height:250px;
+    font-size:2rem;
+    line-height:1.8;
+    margin-top:30px;
+    padding:20px;
+    font-weight:500;
+    text-shadow:0 0 10px rgba(255,255,255,0.3);
 }
 
 .counter{
-    margin-top:30px;
-    font-size:1.5rem;
+    margin-top:20px;
+    font-size:2rem;
+    font-weight:600;
 }
 
 .special{
     margin-top:40px;
-    font-size:2rem;
+    font-size:2.5rem;
     animation:pulse 1s infinite;
+    font-weight:700;
 }
 
 @keyframes pulse{
@@ -139,25 +154,58 @@ button:hover{
 
 #loveMeter{
     font-size:2rem;
-    margin-top:20px;
+    margin-top:30px;
+    font-weight:600;
 }
 
 #surprise{
     display:none;
-    margin-top:40px;
+    margin-top:50px;
 }
 
 #funnyPhoto{
     display:none;
-    margin-top:30px;
+    margin-top:40px;
 }
 
 #funnyPhoto img{
-    width:300px;
-    border-radius:20px;
+    width:320px;
+    border-radius:25px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.3);
+}
+
+#surpriseBtn,
+#funnyBtn{
+    background:white;
+    color:#ff4f81;
+}
+
+@media(max-width:768px){
+
+h1{
+    font-size:2.3rem;
+}
+
+#typewriter{
+    font-size:1.3rem;
+}
+
+.counter{
+    font-size:1.4rem;
+}
+
+.special{
+    font-size:2rem;
+}
+
+.gallery img{
+    height:280px;
+}
+
 }
 
 </style>
+
 </head>
 
 <body>
@@ -198,7 +246,6 @@ button:hover{
 <img src="photo3.jpg">
 <img src="photo4.jpg">
 <img src="photo5.jpg">
-<img src="photo6.jpg">
 
 </div>
 
@@ -211,9 +258,16 @@ Click for one more surprise 🎁
 <h1>You Are My Safest Place ❤️</h1>
 
 <p>
-Thank you for existing.
-Thank you for loving me.
-Thank you for always being there for me.
+Thank you for existing.<br>
+Thank you for loving me.<br>
+Thank you for always being there for me.<br><br>
+
+You make life feel softer,
+warmer,
+and happier.<br><br>
+
+I genuinely feel lucky
+that I get to love you ❤️
 </p>
 
 <div class="special">
@@ -225,7 +279,7 @@ click if you think you're cute 😒
 </button>
 
 <div id="funnyPhoto">
-<img src="photo7.jpg">
+<img src="photo6.jpg">
 </div>
 
 </div>
@@ -246,7 +300,8 @@ const noMessages = [
 "Don't you love me? 😭",
 "My feelings are hurt 💔",
 "Please open ittt ❤️",
-"Why are you running 😭"
+"Why are you running 😭",
+"Just say yes baby 🥹"
 ];
 
 let noCount = 0;
@@ -294,6 +349,9 @@ if(percent >= 100){
 
 clearInterval(interval);
 
+document.getElementById("loveMeter").innerHTML =
+"1000000% IN LOVE ❤️";
+
 setTimeout(() => {
 
 document.getElementById("question").style.display =
@@ -306,11 +364,11 @@ typeWriter();
 
 createHearts();
 
-},1000);
+},1200);
 
 }
 
-},200);
+},180);
 
 });
 
@@ -339,7 +397,7 @@ text.charAt(i);
 
 i++;
 
-setTimeout(typeWriter,40);
+setTimeout(typeWriter,35);
 
 }
 
