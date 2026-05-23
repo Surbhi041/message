@@ -481,6 +481,42 @@ const noMessages = [
 
 let noCount = 0;
 
+function moveNoButton(){
+
+    noBtn.innerText =
+    noMessages[noCount % noMessages.length];
+
+    const x =
+    Math.random()*250 - 125;
+
+    const y =
+    Math.random()*250 - 125;
+
+    noBtn.style.transform =
+    `translate(${x}px,${y}px)
+    scale(${1 + noCount*0.08})`;
+
+    noCount++;
+
+}
+
+noBtn.addEventListener(
+"mouseover",
+moveNoButton
+);
+
+noBtn.addEventListener(
+"click",
+moveNoButton
+);
+
+noBtn.addEventListener(
+"touchstart",
+moveNoButton
+);
+
+let noCount = 0;
+
 noBtn.addEventListener("mouseover", () => {
 
 noBtn.innerText =
